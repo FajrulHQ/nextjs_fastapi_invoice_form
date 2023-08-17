@@ -23,7 +23,7 @@ export default function InvoiceForm() {
   const submitInvoice = async () => {
     const resp = await onCreateInvoice(invoice)
     if (!resp.error) {
-      alert('Invoice create successfully')
+      // alert('Invoice create successfully')
       getInvoices()
     }
     else alert(resp.error)
@@ -50,6 +50,7 @@ export default function InvoiceForm() {
       paid_date: '',
       invoice_list_detail: []
     }))
+    dispatch(set_invoice_list_detail([]))
   }
 
   useEffect(() => {
@@ -171,7 +172,7 @@ export default function InvoiceForm() {
         </div>
       </div>
       <InvoiceListForm />
-      <InvoiceListDetailForm id={invoice.id} />
+      <InvoiceListDetailForm id={invoice.id} data={invoice} />
       <div className="my-2 flex justify-center gap-4">
         <Button className="w-48 bg-blue-600 hover:bg-blue-500" onClick={saveInvoice}>Save</Button>
         <Button className="w-48 bg-blue-950 hover:bg-blue-900" onClick={submitInvoice}>Submit</Button>

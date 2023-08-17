@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Input } from "../ui/input";
 import { useDispatch, useSelector } from "react-redux";
-import { onGetInvoiceList } from "app/services/invoice.api";
+import { onDeleteInvoiceList, onGetInvoiceList } from "app/services/invoice.api";
 import { set_invoice_claim, set_invoice_list } from "app/services/slicer/invoiceSlicer";
 import { ArrowRightCircleIcon, Trash2Icon } from "lucide-react";
 
@@ -18,6 +18,17 @@ export default function InvoiceListForm() {
   const header = [
     "Invoice Doc", "Invoice Date", "Top", "Invoice Due Date", "Faktur Pajak No", "PPN Rate (%)", "Description", "Total Before Tax", "PPN Prepaid", "Total After Tax", "Action"
   ]
+  const getInvoices = async () => {
+    const resp = await onGetInvoiceList({})
+    dispatch(set_invoice_list(resp))
+  }
+  
+  const deleteInvoiceList = async (id) => {
+    if (confirm("Are you sure to delete this data?")) {
+      await onDeleteInvoiceList({ id })
+      getInvoices()
+    }
+  }
 
   return (
     <div className="m-2 border-b border-t border-zinc-500">
@@ -79,7 +90,7 @@ export default function InvoiceListForm() {
               onChange={(e) => changeInvoiceList(c, 'total_after_tax', Number(e.target.value))}
             />
             <div className="flex gap-2 pt-2 justify-center">
-              <Trash2Icon className="w-5 text-red-700 cursor-pointer" />
+              <Trash2Icon className="w-5 text-red-700 cursor-pointer" onClick={() => deleteInvoiceList(c.id)} />
               <ArrowRightCircleIcon className="w-5 text-blue-700 cursor-pointer" onClick={() => dispatch(set_invoice_claim(c))} />
             </div>
           </div>

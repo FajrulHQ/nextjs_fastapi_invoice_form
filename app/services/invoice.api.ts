@@ -54,6 +54,22 @@ export const onCreateInvoice = async (data: any) => {
     }
 }
 
+export const onCreateInvoiceListDetail = async (data: any) => {
+    const requestConfig: AxiosRequestConfig = {
+        method: 'post',
+        url: API_URL + '/list/detail',
+        data
+    }
+    try {
+        const { data: response } = await Axios.request(requestConfig)
+        return response
+    }
+    catch (err: any) {
+        const errMessage = err.message
+        return { error: errMessage }
+    }
+}
+
 export const onUpdateInvoiceClaim = async (data: any) => {
     const requestConfig: AxiosRequestConfig = {
         method: 'patch',
@@ -69,10 +85,43 @@ export const onUpdateInvoiceClaim = async (data: any) => {
         return { error: errMessage }
     }
 }
+
 export const onUpdateInvoiceList = async (data: any) => {
     const requestConfig: AxiosRequestConfig = {
         method: 'patch',
         url: API_URL + `/list/${data.id}`,
+        data
+    }
+    try {
+        const { data: response } = await Axios.request(requestConfig)
+        return response
+    }
+    catch (err: any) {
+        const errMessage = err.message
+        return { error: errMessage }
+    }
+}
+
+export const onDeleteInvoiceList = async (data: any) => {
+    const requestConfig: AxiosRequestConfig = {
+        method: 'delete',
+        url: API_URL + `/${data.id}`,
+        data
+    }
+    try {
+        const { data: response } = await Axios.request(requestConfig)
+        return response
+    }
+    catch (err: any) {
+        const errMessage = err.message
+        return { error: errMessage }
+    }
+}
+
+export const onDeleteInvoiceListDetail = async (data: any) => {
+    const requestConfig: AxiosRequestConfig = {
+        method: 'delete',
+        url: API_URL + `/list/detail/${data.id}`,
         data
     }
     try {

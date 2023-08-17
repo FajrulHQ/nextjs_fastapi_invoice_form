@@ -1,4 +1,4 @@
-<p align="center">
+<!-- <p align="center">
   <a href="https://nextjs-fastapi-starter.vercel.app/">
     <img src="https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" height="96">
     <h3 align="center">Next.js FastAPI Starter</h3>
@@ -7,8 +7,8 @@
 
 <p align="center">Simple Next.js boilerplate that uses <a href="https://fastapi.tiangolo.com/">FastAPI</a> as the API backend.</p>
 
-<br/>
-
+<br/> -->
+# Invoice Form using Next JS + FAST API
 ## Introduction
 
 This is a hybrid Next.js + Python app that uses Next.js as the frontend and FastAPI as the API backend. One great use case of this is to write Next.js apps that use Python AI libraries on the backend.
@@ -25,21 +25,8 @@ In production, the FastAPI server is hosted as [Python serverless functions](htt
 
 ## Demo
 
-https://nextjs-fastapi-starter.vercel.app/
-
-## Deploy Your Own
-
-You can clone & deploy it to Vercel with one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdigitros%2Fnextjs-fastapi%2Ftree%2Fmain)
-
-## Developing Locally
-
-You can clone & create this repo with the following command
-
-```bash
-npx create-next-app nextjs-fastapi --example "https://github.com/digitros/nextjs-fastapi"
-```
+<!-- https://nextjs-fastapi-starter.vercel.app/ -->
+![demo](demo_invoice.gif)
 
 ## Getting Started
 
